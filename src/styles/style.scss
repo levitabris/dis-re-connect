@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100&display=swap');
+
+$line-ultra-fine: .3px;
+$line-fine: .5px;
+$line-glow: 1.5px;
+$middle: 50%;
+$color-land: #fef1f0;
+$color-water: #f9f8fd;
+$color-light: #fefefe;
+$color-dark: #2d2d33;
+
+$globe-left: 6.5vw;
+$globe-top: 3.5vh;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin:0;
+    padding: 0;
+    background-color: $color-dark;
+}
+
+
+body {
+    // background-image: url(/public/assets/bg-gradient.png);
+    position: relative;
+    overflow: hidden;
+    
+    #log {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-family: sans-serif;
+        font-size: 36px;
+        max-width: 28vw;
+        height: 100%;
+        z-index: 500;
+        color: white;
+        pointer-events: none;
+        background: none;
+        padding-left: 2rem;
+
+        h5 {
+            padding: 2rem 0 1rem 0;
+        }
+
+        p {
+            column-count: 2;
+            column-gap: 1.2rem;
+            font-size: .65rem;
+            display: inline-block;
+            max-height: calc(100vh - 7.5rem);
+            white-space: pre-line;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+
+    // #world-2d {
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0;
+    //     width: 100vw;
+    //     height: 100vh;
+    //     background: rgb(255,255,255);
+    //     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,243,1) 50%, rgba(235,235,236,1) 60%, rgba(219,219,220,1) 78%);    
+    //     z-index: 400;
+    //     display: none;
+
+    //     .country {
+    //         stroke-linecap: butt;
+    //         stroke-linejoin: miter-clip;
+    //         stroke-miterlimit: 0;
+    //         fill: none;
+    //     }
+
+    //     g.map {
+    //         .use-origin {
+    //             fill: $color-water;
+    //             stroke: black;
+    //         }
+
+    //         .use-copy {
+    //             stroke: $color-water;
+    //             // stroke-opacity: .3;
+    //             // stroke-width: 1px;
+    //             // visibility: hidden;
+    //             // stroke-dasharray: 6 9;
+    //             // stroke: black;
+    //         }
+    //     }
+
+    //     .globe-outline {
+    //         fill: $color-water;
+    //         stroke: $color-dark;
+    //         stroke-width: $line-glow;
+    //         opacity: 1;
+    //         cx: 100%;
+    //         cy: $middle;
+    //         z-index: 9000;
+    //     }
+    // }
+
+    #cover {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        height: 4vh;
+        width: 100%;
+        background-color:#000011;
+        z-index: 350;
+    }
+
+    #world-3d {
+
+        // padding-left: $globe-left;
+        // padding-top: $globe-top;
+        width: 100%;
+        height: 100%;
+        background-color: #000011;
+        border: none;
+        cursor: url(../../public/assets/sniper_w.png), crosshair;
+
+        h3.paper-title {
+            width: 100%;
+            pointer-events: none
+        }
+
+        canvas {
+            border: none;
+            background-color: #000011;
+        }
+        
+        p.country-label {
+            margin-top: .4rem;
+            pointer-events: none;
+            font-weight: 100;
+            font-size: 1.5rem;
+        }
+    }  
+}
+
