@@ -29,11 +29,11 @@ Promise.all([
             })
         )),
     // fetch paper author network
-    fetch('/public/assets/arcs_by_30.json')
+    fetch('/public/assets/arcs_by_10_clean.json')
         .then(res => res.json())
     ,
     // fetch full paper info
-    fetch('/public/assets/geocoded_institutions.csv')
+    fetch('/public/assets/geocoded_institutions_clean.csv')
         .then(res => res.text())
         .then(csv => d3.dsvFormat(',').parse(csv))
     // ,
@@ -44,8 +44,6 @@ Promise.all([
     ])
     // end of Promise missions
     .then(([countries, reports, arcs, institutions]) => {
-        // console.log(countries.features)
-
 
         const MAP_CENTER = { lat: 34.3416, lng: 108.9398, altitude: 2.4 }
         const OPACITY = .4
@@ -92,8 +90,9 @@ Promise.all([
                         </p>
                         `)
                     // alert(world)
-                    world.arcColor((d) => d.countries.includes(country.properties.SUBUNIT) ? `rgba(0, 120, 240, ${OPACITY})` : `rgba(0, 120, 240, ${OPACITY / 6})`)
-                        .arcStroke((d) => d.countries.includes(country.properties.SUBUNIT) ? .5 : .1)
+                    world.arcColor((d) => d.countries.includes(country.properties.SUBUNIT) ? `rgba(0, 120, 240, ${OPACITY + .2})` : `rgba(0, 120, 240, ${OPACITY / 6})`)
+                        .arcStroke((d) => d.countries.includes(country.properties.SUBUNIT) ? .5 : 0.001)
+                        .arcDashGap(0.05)
                         // .arcDashAnimateTime(3500)
                 })
 

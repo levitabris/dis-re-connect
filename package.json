@@ -48,6 +48,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
+    "@loaders.gl/core": "^2.2.8",
+    "@loaders.gl/csv": "^2.2.8",
+    "@loaders.gl/json": "^2.2.8",
     "core-js": "^3.6.5",
     "d3": "^5.16.0",
     "globe.gl": "^2.10.1",
