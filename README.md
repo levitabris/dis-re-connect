@@ -2,7 +2,7 @@
 
 The source code is released as a part of a poster publication in VINCI 2020 conferences. 
 
-Visit [Online](http://exhibition.wei.ski/dis-re-connect) (Google Chrome for best performance).
+Visit [Online](http://exhibition.wei.ski/dis-re-connect) (Google Chrome for the best performance).
 
 ![Preview](public/assets/China_US_paper.png)
 
