@@ -1,20 +1,20 @@
 # Dis\[Re\]Connect
 
-The source code is released as a part of a poster publication in VINCI 2020 conferences. 
+The source code is released as a part of a poster publication in VINCI 2020 conferences.
 
 Visit [Online](http://exhibition.wei.ski/dis-re-connect) (Google Chrome for the best performance).
 
-![Preview](public/assets/China_US_paper.png)
+![Preview](public/static/China_US_paper.png)
 
 Demo: [Video1](https://www.youtube.com/watch?v=Glei5vPQOwA),
 [Video2](https://www.youtube.com/watch?v=gfUw4OkkDTE)
 
-### Story 
-This is a 3D interactive visualization showing the rising number of COVID-19 pandemic cases and comparing it with the collaborating global research efforts. The infection percentage of each country is shown as translucent crimson walls on its border, indicating a stronger tendency to level up border restrictions. Locations of institutions who have contributed to the pandemic research are indicated by light blue points on the earth. They are organically wired together by the peer-to-peer relationships nurtured by international co-authorships. Beneath each link is a published paper which marks a small step toward the final victory over the crisis. 
+### Story
+This is a 3D interactive visualization showing the rising number of COVID-19 pandemic cases and comparing it with the collaborating global research efforts. The infection percentage of each country is shown as translucent crimson walls on its border, indicating a stronger tendency to level up border restrictions. Locations of institutions who have contributed to the pandemic research are indicated by light blue points on the earth. They are organically wired together by the peer-to-peer relationships nurtured by international co-authorships. Beneath each link is a published paper which marks a small step toward the final victory over the crisis.
 
 ### Usage
 
-In terminal, enter `npm install` then `npm run start` to run locally. Your broswer should start automatically. 
+In terminal, enter `npm install` then `npm run start` to run locally. Your broswer should start automatically.
 
 The default state slowly rotates the globe, showing all the connections of authors[1] throughout the world contributing to the fight against COVID-19. Mouse hovering on a link shows its paper title and collaborating countries. A country can be selected to view all the established works with authors from foreign institutes.
 
