@@ -54,7 +54,7 @@ svg.call(d3.drag().on('drag', () => {
     svg.selectAll('path').attr('d', path)
 }))
 
-fetch('/public/assets/world_map.json')
+fetch('static/world_map.json')
     .then(res => res.json())
     .then(countries => {
         let defs = svg.append('g').attr('class', 'clip-defs')
@@ -87,11 +87,11 @@ fetch('/public/assets/world_map.json')
                             .attr('clip-path', x => `url(#clip-${x.id})`)
 
         let uses_copy = uses.clone(true).attr('class', x => `use-copy use-copy-${x.id}`)
-                  
+
         // print(countries.features.length)
         fetch('public/assets/COVID19_geo_dist.csv')
             .then(res => res.text())
-            .then(csv => d3.dsvFormat(';').parse(csv, ({ dateRep, deaths, cases, countryterritoryCode, popData2018 }) => 
+            .then(csv => d3.dsvFormat(';').parse(csv, ({ dateRep, deaths, cases, countryterritoryCode, popData2018 }) =>
                 ({
                   deaths: Number(deaths)
                 , cases: Number(cases)
@@ -108,7 +108,7 @@ fetch('/public/assets/world_map.json')
                         d3.select(`.use-origin-${x.id}`).style('stroke-width', lineWidth * 1.5)//.style('stroke', caseByPop ? d3.interpolateYlOrRd(Math.pow(caseByPop, .3) * 4) : 'none')
                         d3.select(`.use-copy-${x.id}`).style('stroke-width', lineWidth).style('stroke', caseByPop ? d3.interpolateYlOrRd(Math.pow(caseByPop, .3) * 4) : 'none')//
                         // print(d3.select(`.use-copy-${x.id}`))
-                    })     
+                    })
                 }
 
                 //Optional rotate
@@ -122,7 +122,7 @@ fetch('/public/assets/world_map.json')
                     path = d3.geoPath().projection(projection)
                     svg.selectAll('path').attr("d", path)
 
-                    tillTime = 
+                    tillTime =
                         tillTime < parseDate('16/5/2020') ? new Date(+tillTime + sensitivity * 24 * 60 * 60 * 15) : parseDate('16/5/2020')
                     drawLines()
                     print(tillTime)

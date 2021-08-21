@@ -11,10 +11,10 @@ const tillTime = parseDate('16/5/2020')
 
 Promise.all([
     // fetch geojson world map
-    fetch('../assets/ne_110m_admin_0_countries.geojson')
+    fetch('./static/ne_110m_admin_0_countries.geojson')
         .then(res => res.json()),
     // fetch distributions statistic about covid-19
-    fetch('../assets/COVID19_geo_dist.csv')
+    fetch('./static/COVID19_geo_dist.csv')
         .then(res => res.text())
         .then(csv => d3.dsvFormat(';').parse(csv, ({ dateRep, deaths, cases, countryterritoryCode, popData2018 }) =>
             ({
@@ -26,16 +26,16 @@ Promise.all([
             })
         )),
     // fetch paper author network
-    fetch('../assets/arcs_by_10_clean.json')
+    fetch('./static/arcs_by_10_clean.json')
         .then(res => res.json())
     ,
     // fetch full paper info
-    fetch('../assets/geocoded_institutions_clean.csv')
+    fetch('./static/geocoded_institutions_clean.csv')
         .then(res => res.text())
         .then(csv => d3.dsvFormat(',').parse(csv))
     // ,
     // fetch
-    // fetch('../assets/paper_author_loc.csv')
+    // fetch('paper_author_loc.csv')
     //     .then(res => res.text())
     //     .then(csv => d3.dsvFormat(',').parse(csv))
     ])
@@ -50,9 +50,9 @@ Promise.all([
                 animateIn: true
               , rendererConfig: { antialias: true, alpha: true }
         })(document.getElementById('world-3d'))
-            .globeImageUrl('../assets/earth-dark.jpg')
-            .bumpImageUrl('../assets/earth-topology.png')
-            // .backgroundImageUrl('../assets/night-sky.png')
+            .globeImageUrl('./static/earth-dark.jpg')
+            .bumpImageUrl('./static/earth-topology.png')
+            // .backgroundImageUrl('night-sky.png')
             .pointOfView(MAP_CENTER, 0)
 
             // .enablePointerInteraction(false)

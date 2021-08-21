@@ -4,7 +4,7 @@
   "description": "VINCI 20' Poster Exhib.",
   "scripts": {
     "build": "vite build",
-    "dev": "vite dev",
+    "dev": "vite",
     "preview": "vite preview"
   },
   "repository": {
