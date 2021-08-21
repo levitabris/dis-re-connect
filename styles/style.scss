@@ -24,12 +24,10 @@ body {
     background-color: $color-dark;
 }
 
-
 body {
-    // background-image: url(/public/assets/bg-gradient.png);
     position: relative;
     // overflow: hidden;
-    
+
     #log {
         position: absolute;
         left: 0;
@@ -55,7 +53,7 @@ body {
             display: inline-block;
             max-height: calc(100vh - 7.5rem);
             white-space: pre-line;
-            overflow: hidden;
+            overflow-y: scroll;
             margin: 0;
             padding: 0;
         }
@@ -69,7 +67,7 @@ body {
     //     width: 100vw;
     //     height: 100vh;
     //     background: rgb(255,255,255);
-    //     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,243,1) 50%, rgba(235,235,236,1) 60%, rgba(219,219,220,1) 78%);    
+    //     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,243,1) 50%, rgba(235,235,236,1) 60%, rgba(219,219,220,1) 78%);
     //     z-index: 400;
     //     display: none;
 
@@ -126,7 +124,7 @@ body {
         height: 100%;
         background-color: #000011;
         border: none;
-        cursor: url(../../public/assets/sniper_w.png), crosshair;
+        cursor: url(../assets/sniper_w.png), crosshair;
 
         h3.paper-title {
             width: 100%;
@@ -137,13 +135,13 @@ body {
             border: none;
             background-color: #000011;
         }
-        
+
         p.country-label {
             margin-top: .4rem;
             pointer-events: none;
             font-weight: 100;
             font-size: 1.5rem;
         }
-    }  
+    }
 }
 

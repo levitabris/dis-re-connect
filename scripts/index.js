@@ -3,9 +3,6 @@ import Globe from 'globe.gl'
 import * as d3 from 'd3'
 // import Offset from 'polygon-offset'
 
-// style sheet
-import '../styles/style.scss'
-
 // console.log(document.getElementById('log'))
 const print = (text) => (document.getElementById('log').innerHTML = text)
 const parseDate = d3.utcParse('%d/%m/%Y')
@@ -14,10 +11,10 @@ const tillTime = parseDate('16/5/2020')
 
 Promise.all([
     // fetch geojson world map
-    fetch('/public/assets/ne_110m_admin_0_countries.geojson') 
-        .then(res => res.json()), 
+    fetch('../assets/ne_110m_admin_0_countries.geojson')
+        .then(res => res.json()),
     // fetch distributions statistic about covid-19
-    fetch('/public/assets/COVID19_geo_dist.csv') 
+    fetch('../assets/COVID19_geo_dist.csv')
         .then(res => res.text())
         .then(csv => d3.dsvFormat(';').parse(csv, ({ dateRep, deaths, cases, countryterritoryCode, popData2018 }) =>
             ({
@@ -29,16 +26,16 @@ Promise.all([
             })
         )),
     // fetch paper author network
-    fetch('/public/assets/arcs_by_10_clean.json')
+    fetch('../assets/arcs_by_10_clean.json')
         .then(res => res.json())
     ,
     // fetch full paper info
-    fetch('/public/assets/geocoded_institutions_clean.csv')
+    fetch('../assets/geocoded_institutions_clean.csv')
         .then(res => res.text())
         .then(csv => d3.dsvFormat(',').parse(csv))
     // ,
-    // fetch 
-    // fetch('/public/assets/paper_author_loc.csv')
+    // fetch
+    // fetch('../assets/paper_author_loc.csv')
     //     .then(res => res.text())
     //     .then(csv => d3.dsvFormat(',').parse(csv))
     ])
@@ -53,9 +50,9 @@ Promise.all([
                 animateIn: true
               , rendererConfig: { antialias: true, alpha: true }
         })(document.getElementById('world-3d'))
-            .globeImageUrl('/public/assets/earth-dark.jpg')
-            .bumpImageUrl('/public/assets/earth-topology.png')
-            // .backgroundImageUrl('/public/assets/night-sky.png')
+            .globeImageUrl('../assets/earth-dark.jpg')
+            .bumpImageUrl('../assets/earth-topology.png')
+            // .backgroundImageUrl('../assets/night-sky.png')
             .pointOfView(MAP_CENTER, 0)
 
             // .enablePointerInteraction(false)
@@ -75,9 +72,9 @@ Promise.all([
                         r => ( r.dateRep - tillTime <= 0 )
                     ).filter(
                         r => ( r.countryterritoryCode === country.properties.ISO_A3)
-                    ).map( 
+                    ).map(
                         r => r.cases / r.popData2018
-                    ).reduce( 
+                    ).reduce(
                         (a, b) => (a + b)
                         , 0
                     )
@@ -115,7 +112,7 @@ Promise.all([
                     <h2 class="paper-title">${d.title}</h2>
                     <p class="country-label">${(d.countries.length === 2 ? `${d.countries[0]} x ${d.countries[1]}` : d.countries[0])}</p>
                 `)
-            
+
             .pointsData(institutions)
                 // .pointLabel(d => d.name)
                 .pointLat(d => +d.lat)
@@ -124,8 +121,8 @@ Promise.all([
                 .pointAltitude(0)
                 .pointResolution(12)
                 .pointColor(() => `rgba(0, 120, 240, .8)`)
-            
-            
+
+
             // .camera(cam => {
             //     console.log(cam)
             //     return cam.setViewOffset({
@@ -137,7 +134,7 @@ Promise.all([
             //         , height: window.innerHeight - 20
             //     })
             // })
-            
+
 
         // world.camera(cam => {
         //         console.log(cam)
@@ -146,8 +143,8 @@ Promise.all([
         //             , fullHeight: window.innerHeight + 700
         //             , x: 0
         //             , y: 0
-        //             , width: window.innerWidth 
-        //             , height: window.innerHeight 
+        //             , width: window.innerWidth
+        //             , height: window.innerHeight
         //         })
         // })
 
@@ -155,5 +152,5 @@ Promise.all([
         world.controls().autoRotate = true;
         world.controls().autoRotateSpeed = 0.35;
 
-        print(`<h5>${institutions.length} Research Institutions Worldwide Joining Hands Against COVID-19</h5>`)
+        // print(`<h5>${institutions.length} International Research Institutions Joining Hands Against COVID-19</h5>`)
     })
